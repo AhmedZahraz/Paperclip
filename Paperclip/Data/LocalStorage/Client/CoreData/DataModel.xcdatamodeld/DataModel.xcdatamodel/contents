@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AdEntity" representedClassName=".AdEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="adDescription" optional="YES" attributeType="String"/>
+        <attribute name="creationDate" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isUrgent" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="siret" optional="YES" attributeType="String"/>
+        <attribute name="smallImageURL" optional="YES" attributeType="String"/>
+        <attribute name="thumbImageURL" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryEntity" inverseName="ads" inverseEntity="CategoryEntity"/>
+    </entity>
+    <entity name="CategoryEntity" representedClassName=".CategoryEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="ads" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AdEntity" inverseName="category" inverseEntity="AdEntity"/>
+    </entity>
+    <elements>
+        <element name="AdEntity" positionX="-123.9132080078125" positionY="-54.08468627929688" width="128" height="194"/>
+        <element name="CategoryEntity" positionX="122.023681640625" positionY="65.78985595703125" width="128" height="74"/>
+    </elements>
+</model>

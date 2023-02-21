@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Paperclip
+
+  Created by Ahmed Zahraz on 20/02/2023.
+  
+*/
+
+"adslist_screen_title" = "Home";
+"addetails_screen_title" = "Ad Details";
+"urgent_text" = "URGENT";
+"error_title" = "Error";
+"error_general_message" = "An error has occurred";
+"error_network_connection_message" = "Please check your network connection and try again.";
+"retry_button_title" = "Retry";
+"hide_button_title" = "Hide";
