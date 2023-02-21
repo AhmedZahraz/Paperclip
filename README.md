@@ -25,15 +25,11 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="Paperclip/Application/Assets.xcassets/paperclip-icon.imageset/paperclip-icon.png" alt="Logo" width="300" height="300">
   </a>
 
-  <h3 align="center">Paperclip</h3>
+  <h3 align="center">iOS project</h3>
 
-  <p align="center">
-    iOS project
-    <br />
-  </p>
 </div>
 
 
@@ -45,8 +41,9 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#project-file-structure">Project File Structure</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#built-with">Built With</a></li>
-        <li><a href="#prerequisites">Prerequisitesh</a></li>
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -60,25 +57,40 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
+<p align="middle">
+<img src="ReadmeImages/ipad_home.png" alt="Home-iPad" width="350" height="468" hspace="20"/>
+<img src="ReadmeImages/iphone_home_screen.png" alt="Home-iPhone" width="250" height="468" hspace="20"/>
+<img src="ReadmeImages/iphone_details_screen.png" alt="Details-iPhone" width="250" height="468">
+</p>
 Ce projet pourrait être utilisé comme un projet de base pour n'importe quel nouveau projet iOS.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Prerequisites
+### Project File Structure
 
-Xcode version (min) = 13.2 (pour avoir Swift Concurrency)
+<img src="ReadmeImages/project-structure.png" alt="Logo" width="300" height="788">
+
+### Prerequisites
+Compatible iOS 14 +
+<br>
+Xcode version >= 13.2 (pour avoir Swift Concurrency)
 
 
 ### Built With
 
-* Clean Architecutre (Presentation(UIKit), Domain, Data)
-* Screaming Architecture
-* Swift Concurrency : Async/Await (Presentation --> Domain) (Data ---> Domain)
-* MVVM-C : couche Presentation 
-* Combine : ViewController <--> ViewModel
+* Clean Architecutre (Presentation, Domain, Data) | Screaming Architecture
+* Dependency Injection
+* Intéraction entre les couches via : 
+  - Swift Concurrency : Async/Await (Presentation --> Domain) (Data ---> Domain)
+* Couche Presentation : 
+  - UIKit : sans storyboard sans xib 
+  - MVVM-C : Model View ViewModel - Coordinator (responsable de la navigation)
+  - Combine : Interaction entre (ViewController <--> ViewModel)
+* Couche Data : 
+  - Networking : URLSession (via un protocol "NetworkingClient")
+  - Local Storage : CoreData
+* Tests : Les tests sont écrits en utilisant XCTest
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
