@@ -100,7 +100,7 @@ Xcode version >= 13.2 (pour avoir Swift Concurrency)
 
 - [ ] Ajouter plus de UnitTests (Couches Data et Presentation)
 - [ ] Ajouter un "ParserClient" pour pouvoir utiliser un parser personnalisé 
-- [ ] Ajouter un "StreamParser" : dans le cas d'un retour serveur important (big json array) : stocker la réponse dans un fichier puis récupérer les éléments "one by one" pour ne pas saturer la mémoire. 
+- [ ] Ajouter un "StreamParser" : dans le cas d'un retour serveur important (big json array) : stocker la réponse dans un fichier puis récupérer les éléments "one by one" pour ne pas saturer la mémoire. (voir l'exemple ci-dessous)
 - [ ] Utiliser "UICollectionViewDataSourcePrefetching" pour avoir un scroll plus smooth
 - [ ] Ajouter une lib type SwiftGen pour détecter les erreurs strings en "compilation time"
 - [ ] Ajouter SwiftLint
@@ -108,6 +108,37 @@ Xcode version >= 13.2 (pour avoir Swift Concurrency)
     - [ ] Français
 - [ ] Ajouter dans README une section "Acknowledgments"
 
+```Swift
+// StreamParser
+
+func parseUsersFromFile(atPath filePath: String, onUserParsed: @escaping (User) -> Void) {
+    guard let inputStream = InputStream(fileAtPath: filePath) else {
+        print("Impossible d'ouvrir le fichier.")
+        return
+    }
+    inputStream.open()
+    
+    let bufferSize = 1024
+    var buffer = [UInt8](repeating: 0, count: bufferSize)
+    var data = Data()
+    
+    while inputStream.hasBytesAvailable {
+        let bytesRead = inputStream.read(&buffer, maxLength: bufferSize)
+        if bytesRead > 0 {
+            data.append(&buffer, count: bytesRead)
+            if let jsonArray = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [[String: Any]] {
+                for jsonObject in jsonArray {
+                    if let id = jsonObject["id"] as? Int, let name = jsonObject["name"] as? String {
+                        let user = User(id: id, name: name)
+                        onUserParsed(user)
+                    }
+                }
+                data = Data() // réinitialiser le tampon de données
+            }
+        }
+    }
+}
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
