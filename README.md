@@ -46,13 +46,12 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#prerequisites">Prerequisitesh</a></li>
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -68,6 +67,9 @@ Ce projet pourrait être utilisé comme un projet de base pour n'importe quel no
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Prerequisites
+
+Xcode version (min) = 13.2 (pour avoir Swift Concurrency)
 
 
 ### Built With
@@ -86,12 +88,13 @@ Ce projet pourrait être utilisé comme un projet de base pour n'importe quel no
 
 - [ ] Ajouter plus de UnitTests (Couches Data et Presentation)
 - [ ] Ajouter un "ParserClient" pour pouvoir utiliser un parser personnalisé 
-- [ ] Ajouter un "StreamParse" : dans le cas d'un retour serveur important (big json array) : stocker la réponse dans un fichier puis récupérer les élèments "one by one" pour ne pas saturer la mémoire. 
+- [ ] Ajouter un "StreamParser" : dans le cas d'un retour serveur important (big json array) : stocker la réponse dans un fichier puis récupérer les éléments "one by one" pour ne pas saturer la mémoire. 
 - [ ] Utiliser "UICollectionViewDataSourcePrefetching" pour avoir un scroll plus smooth
 - [ ] Ajouter une lib type SwiftGen pour détecter les erreurs strings en "compilation time"
-- [ ] Add SwiftLint
+- [ ] Ajouter SwiftLint
 - [ ] Multi-language Support
     - [ ] Français
+- [ ] Ajouter dans README une section "Acknowledgments"
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
