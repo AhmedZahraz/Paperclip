@@ -38,10 +38,10 @@ final class DefaultAdRepository: AdRepository {
     }
     
     private func fetchAndStoreAdsList() async throws {
-        let categories = try await categoryRepository.fetchCategoriesList()
+        async let categories = try categoryRepository.fetchCategoriesList()
         
         let urlRequest = try APIEndpoints.getAds()
-        let adsDTO: [AdDTO] = try await self.networkService.request(from: urlRequest)
+        async let adsDTO: [AdDTO] = try self.networkService.request(from: urlRequest)
         
         try await storeAdsList(adsDTO: adsDTO, categories: categories)
     }
